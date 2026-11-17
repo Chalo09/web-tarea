@@ -210,7 +210,7 @@ img{-webkit-user-drag:none}
 </div>
 <script>
 var H=["Votación de 1913","Cosecha de café en la Primera Guerra","Federico Tinoco","Huelga de 1920","Urna de voto secreto","Café y crisis de 1929","Huelga bananera de 1934","Segunda Guerra Mundial en Costa Rica","Calderón Guardia o la CCSS","Votación de 1946","Guerra Civil de 1948","Constitución de 1949"],T=["Industria o ciudad de los años 60","ICE, INS o universidad","Escuela, hospital o electrificación","Protesta contra ALCOA 1970","Fábrica o crisis de los 80"];
-function slot(h){var l=document.createElement("label");l.className="ph";l.innerHTML='<input type="file" accept="image/*" hidden><span>Agregar foto: '+h+'</span><img alt="" hidden>';var i=l.firstChild,s=l.children[1],m=l.lastChild;i.onchange=function(){var f=i.files[0];if(!f)return;var r=new FileReader();r.onload=function(){m.src=r.result;m.alt=h;m.hidden=false;s.hidden=true};r.readAsDataURL(f)};return l}
+function slot(h){var l=document.createElement("label");l.className="ph";l.innerHTML='';var i=l.firstChild,s=l.children[1],m=l.lastChild;i.onchange=function(){var f=i.files[0];if(!f)return;var r=new FileReader();r.onload=function(){m.src=r.result;m.alt=h;m.hidden=false;s.hidden=true};r.readAsDataURL(f)};return l}
 document.querySelectorAll(".tl li").forEach(function(li,n){li.appendChild(slot(H[n]||"Imagen"))});
 document.querySelectorAll("table tr").forEach(function(tr,n){var c=document.createElement(n?"td":"th");if(n)c.appendChild(slot(T[n-1]));else c.textContent="Fotografía";tr.appendChild(c)});
 ["copy","cut","selectstart","contextmenu","dragstart"].forEach(function(e){document.addEventListener(e,function(ev){if(!(ev.target.closest&&ev.target.closest("input,textarea")))ev.preventDefault()})});
